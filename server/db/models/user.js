@@ -3,16 +3,25 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
+  name: {
+    type: Sequelize.STRING,
+    defaultValue: 'Friend'
+  },
   email: {
     type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
+    unique: true
   },
   password: {
     type: Sequelize.STRING
   },
   salt: {
     type: Sequelize.STRING
+  },
+  address: {
+    type: Sequelize.STRING
+  },
+  status: {
+    type: Sequelize.ENUM('authorizedUser', 'admin')
   },
   googleId: {
     type: Sequelize.STRING
