@@ -8,8 +8,7 @@
 
 const {expect} = require('chai')
 const db = require('../index')
-// const Product = db.model('product')
-const Product = require('./product')
+const Product = db.model('product')
 
 describe('Product model', () => {
   beforeEach(() => {
@@ -17,24 +16,6 @@ describe('Product model', () => {
   })
 
   describe('creating instance', () => {
-    // describe('name is required', () => {
-    //   let polyjuicePotion;
-
-    //   beforeEach(() => {
-    //     return Product.create({
-    //       name: undefined
-    //     })
-    //     .then(potion => {
-    //       polyjuicePotion = potion;
-    //     })
-
-    //   })
-
-    //   it('expects an error when name is not given', () => {
-    //     expect(polyjuicePotion).to.be.an('error');
-    //   })
-
-    // }) // FIGURE OUT LATER!
 
     describe('sets inventory', () => {
       let polyjuicePotion;
@@ -79,16 +60,6 @@ describe('Product model', () => {
         expect(felixFelicis.inStock).to.be.equal(true)
       })
 
-      xit('changes in stock to false if inventory becomes 0', () => {
-        felixFelicis.update({
-          inventory: 0
-        })
-        .then(potion => {
-          potion.set('inStock', potion.inventory)
-          felixFelicis = potion;
-        })
-        expect(felixFelicis.inStock).to.be.equal(false)
-      }) // worry about this later
     }) // end describe('inStock')
   }) // end describe('instanceMethods')
 
