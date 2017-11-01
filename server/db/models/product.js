@@ -15,12 +15,6 @@ const Product = db.define('product', {
   price: {
     type: Sequelize.FLOAT
   },
-  inStock: {
-    type: Sequelize.BOOLEAN,
-    set(inventory) {
-      this.setDataValue('inStock', inventory > 0)
-    }
-  },
   inventory: {
     type: Sequelize.INTEGER,
     defaultValue: 100

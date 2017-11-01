@@ -1,8 +1,8 @@
-const User = require('./user');
 const Product = require('./product');
-const Cart = require('./cart');
 const Order = require('./order');
+const Order_Product = require('./order_product');
 const Review = require('./review');
+const User = require('./user');
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -13,30 +13,29 @@ const Review = require('./review');
 
 
 ////////////////////////////
-//Users
-User.hasMany(Review);
-User.hasMany(Order);
 
 //Order
 Order.belongsTo(User);
 Order.hasMany(Product);
 
-//Cart
-Cart.hasMany(Product);
-Cart.belongsTo(User);
-
 //Product
 Product.hasMany(Review);
+Product.belongsToMany(Order, { through: 'order_product' });
 
 //Review
 Review.belongsTo(User);
+Review.belongsTo(Product);
+
+//Users
+User.hasMany(Review);
+User.hasMany(Order);
 
 /////////////////////////////
 
 module.exports = {
-  User,
   Product,
-  Cart,
   Order,
-  Review
+  Order_Product,
+  Review,
+  User
 }

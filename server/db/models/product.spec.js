@@ -36,25 +36,7 @@ describe('Product model', () => {
   })
 
   describe('instanceMethods', () => {
-    describe('inStock', () => {
-      let felixFelicis;
-
-      beforeEach(() => {
-        return Product.create({
-          name: 'Felix Felicis',
-          description: 'A potion for luck'
-        })
-          .then(potion => {
-            potion.set('inStock', potion.inventory)
-            felixFelicis = potion
-          })
-      })
-
-      it('sets product to in stock if there is inventory', () => {
-        expect(felixFelicis.inStock).to.be.equal(true)
-      })
-
-    }) // end describe('inStock')
+      
   }) // end describe('instanceMethods')
 
 
