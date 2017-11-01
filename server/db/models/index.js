@@ -1,4 +1,6 @@
 const User = require('./user');
+const Product = require('./product');
+const Cart = require('./cart');
 const Order = require('./order');
 const Review = require('./review');
 
@@ -17,6 +19,8 @@ Order.belongsTo(User);
 
 module.exports = {
   User,
+  Product,
+  Cart
   Order,
   Review
 }

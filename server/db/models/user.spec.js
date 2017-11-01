@@ -32,4 +32,49 @@ describe('User model', () => {
       })
     }) // end describe('correctPassword')
   }) // end describe('instanceMethods')
+
+  describe('authorized or admin', () => {
+    describe('admin user', () => {
+      let snape;
+
+      beforeEach(() => {
+        return User.create({
+          name: 'Severus Snape',
+          email: 'snape@hogwarts.com',
+          password: 'lilyevans',
+          status: 'admin'
+        })
+          .then(user => {
+            snape = user;
+          })
+      })
+
+      it('expects admin user to have a status of admin', () => {
+        expect(snape.status).to.be.equal('admin')
+      })
+
+    })
+
+    describe('authorized user', () => {
+      let slughorn;
+
+      beforeEach(() => {
+        return User.create({
+          name: 'Horace Slughorn',
+          email: 'slughorn@hogwarts.com',
+          password: 'slugclub',
+          status: 'authorizedUser'
+        })
+          .then(user => {
+            slughorn = user;
+          })
+      })
+
+      it('expects authorized user to have a status of authorized', () => {
+        expect(slughorn.status).to.be.equal('authorizedUser')
+      })
+    })
+
+  }) // end authorized and admin users
+
 }) // end describe('User model')
