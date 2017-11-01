@@ -11,16 +11,32 @@ const Review = require('./review');
  * instead of: const User = require('../db/models/user')
  */
 
+
+////////////////////////////
 //Users
 User.hasMany(Review);
 User.hasMany(Order);
 
+//Order
 Order.belongsTo(User);
+Order.hasMany(Product);
+
+//Cart
+Cart.hasMany(Product);
+Cart.belongsTo(User);
+
+//Product
+Product.hasMany(Review);
+
+//Review
+Review.belongsTo(User);
+
+/////////////////////////////
 
 module.exports = {
   User,
   Product,
-  Cart
+  Cart,
   Order,
   Review
 }

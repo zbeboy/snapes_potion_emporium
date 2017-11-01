@@ -1,11 +1,5 @@
 //test specs
 
-//add new product
-//name is required
-//inStock should update
-//test default value of inventory AND specified value
-//test purchase function will subtract from inventory
-
 const {expect} = require('chai')
 const db = require('../index')
 const Product = db.model('product')
