@@ -14,17 +14,13 @@ describe('Order model', () => {
 
       beforeEach(() => {
         return Order.create({
-          products: [1,4,6],
           status: 'Created'
         })
           .then(order => {
             newOrder = order
           })
       })
-
-      it('returns correct products', () => {
-        expect(newOrder.items).to.have.length.of(3);
-      })
+      
       it('returns correct status', () => {
         expect(newOrder.status).to.be.equal('Created');
       })
