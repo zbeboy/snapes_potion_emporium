@@ -28,8 +28,6 @@ const Navbar = (props) => {
   )
 }
 
-export default Navbar;
-
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
@@ -44,3 +42,5 @@ const mapDispatch = (dispatch) => {
     }
   }
 }
+
+export default NavbarContainer = connect(mapState, mapDispatch)(Navbar);
