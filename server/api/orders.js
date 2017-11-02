@@ -57,7 +57,7 @@ router.post('/created', (req, res, next) => {
           })
         })
         .catch(next)
-    }
+  }
 })
 
 router.put('/:id', (req, res, next) => {

@@ -21,7 +21,8 @@ const Product = db.define('product', {
   },
   category: {
     type: Sequelize.STRING
-  }
+  },
+  orderId: Sequelize.INTEGER
 })
 
 Product.prototype.purchase = function(num) {
@@ -31,6 +32,5 @@ Product.prototype.purchase = function(num) {
 Product.prototype.return = function(num) {
   this.setDataValue('inventory', this.inventory + num);
 }
-
 
 module.exports = Product;
