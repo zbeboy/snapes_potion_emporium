@@ -25,6 +25,21 @@ router.get('/:id', (req, res, next) => {
   .catch(next);
 })
 
+//make new user
+router.post('/', (req, res, next) => {
+  User.create(req.body)
+  .then(newUser => res.json(newUser))
+})
+
+//update user (for admin)
+router.put('/:id', (req, res, next) => {
+  let id = Number(req.params.id);
+  User.findById(id)
+  .then(user => user.update(req.body))
+  .then(updatedUser => res.json(updatedUser))
+  .catch(next)
+})
+
 //delete user (for admin)
 router.delete('/:id', (req, res, next) => {
   let id = Number(req.params.id);
@@ -34,14 +49,3 @@ router.delete('/:id', (req, res, next) => {
     }
   })
 })
-
-//update user (for admin)
-router.update('/:id', (req, res, next) => {
-  let id = Number(req.params.id);
-  User.findById(id)
-  .then(user => user.update(req.body))
-  .then(updatedUser => res.json(updatedUser))
-  .catch(next)
-})
-
-
