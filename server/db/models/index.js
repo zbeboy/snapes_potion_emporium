@@ -20,7 +20,7 @@ Order.hasMany(Product);
 
 //Product
 Product.hasMany(Review);
-Product.belongsToMany(Order, { through: 'order_product' });
+Product.belongsToMany(Order, { through: 'order_products' });
 
 //Review
 Review.belongsTo(User);

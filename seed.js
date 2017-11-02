@@ -108,7 +108,7 @@ const products = [
         price: 3.12, 
         category: 'cure/healthy',
         orderId: 1
-    },
+        },
     {
         name: 'Forgetfulness Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/a/aa/Forgetfulness-potion.png/revision/latest/scale-to-width-down/43?cb=20150226164846', 
@@ -440,97 +440,97 @@ const reviews = [
 
 const order_products = [
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 1,
         orderId: 1
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 3,
         orderId: 1
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 2,
         orderId: 2
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 4,
         orderId: 4
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 14,
         orderId: 4
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 5,
         orderId: 5
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 9,
         orderId: 6
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 16,
         orderId: 6
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 10,
         orderId: 7
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 11,
         orderId: 8
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 19,
         orderId: 8
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 12,
         orderId: 9
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 8,
         orderId: 10
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 15,
         orderId: 10
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 13,
         orderId: 11
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 18,
         orderId: 12
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 7,
         orderId: 13
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 6,
         orderId: 14
     },
     {
-        fixedPrice: 100.45,
+        fixedPrice: 100,
         productId: 17,
         orderId: 14
     }
