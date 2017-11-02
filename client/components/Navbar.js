@@ -43,4 +43,4 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default NavbarContainer = connect(mapState, mapDispatch)(Navbar);
+export const NavbarContainer = connect(mapState, mapDispatch)(Navbar);
