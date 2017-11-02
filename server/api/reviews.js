@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Review} = require('../db/models/review');
+const Review = require('../db/models/review');
 module.exports = router
 
 
@@ -12,9 +12,7 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   let id = Number(req.params.id);
   Review.findOne({
-    where:{
-      id: id
-    }
+    where:{ id }
   })
   .then(review => res.json(review))
   .catch(next)
@@ -40,9 +38,11 @@ router.post('/', (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
   let id = req.params.id;
-  Review.findOne({
+  Review.destroy({
     where: {
       id : id
     }
   })
+  .then(() => res.send('this review is gone'))
+  .catch(next)
 })
