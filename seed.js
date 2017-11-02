@@ -438,33 +438,103 @@ const reviews = [
     }
 ];
 
-// const order_products = [
-//     {
-//         fixedPrice: 100.45,
-//         productId: 1,
-//         orderId: 2
-//     },
-//     {
-//         fixedPrice: 100.45,
-//         productId: 1,
-//         orderId: 3
-//     },
-//     {
-//         fixedPrice: 100.45,
-//         productId: 1,
-//         orderId: 7
-//     },
-//     {
-//         fixedPrice: 100.45,
-//         productId: 1,
-//         orderId: 11
-//     },
-//     {
-//         fixedPrice: 100.45,
-//         productId: 1,
-//         orderId: 12
-//     }
-// ];
+const order_products = [
+    {
+        fixedPrice: 100.45,
+        productId: 1,
+        orderId: 1
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 3,
+        orderId: 1
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 2,
+        orderId: 2
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 4,
+        orderId: 4
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 14,
+        orderId: 4
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 5,
+        orderId: 5
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 9,
+        orderId: 6
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 16,
+        orderId: 6
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 10,
+        orderId: 7
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 11,
+        orderId: 8
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 19,
+        orderId: 8
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 12,
+        orderId: 9
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 8,
+        orderId: 10
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 15,
+        orderId: 10
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 13,
+        orderId: 11
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 18,
+        orderId: 12
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 7,
+        orderId: 13
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 6,
+        orderId: 14
+    },
+    {
+        fixedPrice: 100.45,
+        productId: 17,
+        orderId: 14
+    }
+];
 
 const seed = () =>
   Promise.all(users.map(user =>
@@ -481,11 +551,11 @@ const seed = () =>
   .then(() =>
   Promise.all(reviews.map(review =>
     Review.create(review))
+  ))
+  .then(() =>
+  Promise.all(order_products.map(order_product =>
+    Order_Product.create(order_product))
   ));
-//   .then(() =>
-//   Promise.all(order_products.map(order_product =>
-//     Order_Product.create(order_product))
-//   ));
 const main = () => {
   console.log('Syncing db...');
   db.sync({ force: true })
