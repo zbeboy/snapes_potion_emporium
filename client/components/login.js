@@ -1,7 +1,8 @@
-import React from 'react';
-import { Router } from 'react-router';
+import React from 'react'
+import {connect} from 'react-redux'
+import {withRouter, Link} from 'react-router-dom'
 
-export default function Login() {
+const Login = () => {
 
   return (
     <div className="login-container">
@@ -17,9 +18,13 @@ export default function Login() {
       </div>
 
       <div className="login-container-rightbox">
-
+        <form>
+          email
+        </form>
       </div>
     </div>
   )
 
 }
+
+export default withRouter(connect(mapState, mapDispatch)(Login))
