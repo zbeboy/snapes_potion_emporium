@@ -21,8 +21,7 @@ const Product = db.define('product', {
   },
   category: {
     type: Sequelize.STRING
-  },
-  orderId: Sequelize.INTEGER
+  }
 })
 
 Product.prototype.purchase = function(num) {

@@ -19,19 +19,16 @@ router.post('/cart', (req, res, next) => {
   //cart items on state is an array 
   const userStatus = req.body.user.status;
   const products = req.body.products;
+  const fixedPrice = req.body.fixedPrice;
 
-  if (userStatus === 'authorizedUser' || userStatus === 'admin'){
+  if (userStatus === 'authorizedUser' || userStatus === 'admin') {
     Order.create()
       .then(order => products.forEach(product => {
-        Product.update(
-          { orderId: order.id }, 
-            { where: 
-              { id: product.id }
-            }
-          )
-        })
-      )
-    }
+        return Order_Product.create({ fixedPrice: fixedPrice, orderId: orderId, productId: product })
+       }))
+      .then(order => res.json(order))
+      .catch(next)
+  }
 })
 
 router.post('/created', (req, res, next) => {
