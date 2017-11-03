@@ -105,7 +105,7 @@ const products = [
         name: 'Cure for Boils', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/c/c9/Cure-for-boils.png/revision/latest/scale-to-width-down/42?cb=20150226163753', 
         description: 'It cures boils.', 
-        price: 3.12, 
+        price: 312, 
         category: 'cure/healthy',
         orderId: 1
     },
@@ -113,7 +113,7 @@ const products = [
         name: 'Forgetfulness Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/a/aa/Forgetfulness-potion.png/revision/latest/scale-to-width-down/43?cb=20150226164846', 
         description: 'You forget everything that you knew.', 
-        price: 100.45, 
+        price: 10045, 
         category: 'medical',
         orderId: 2
     },
@@ -121,7 +121,7 @@ const products = [
         name: 'Herbicide Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/d/d0/Herbicide.png/revision/latest/scale-to-width-down/56?cb=20150226163145', 
         description: 'Herbal effect.', 
-        price: 54.56, 
+        price: 5456, 
         category: 'cure/healthy',
         orderId: 1
     },
@@ -129,7 +129,7 @@ const products = [
         name: 'Wildeye Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/9/9f/Wideye-or-awakening-potion.png/revision/latest/scale-to-width-down/56?cb=20150226165512', 
         description: 'Gives you the wildest eyes.', 
-        price: 40.56, 
+        price: 4056, 
         category: 'weird/physical',
         orderId: 4
     },
@@ -137,7 +137,7 @@ const products = [
         name: 'Sleeping Draught', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/1/1e/Sleeping-draught.png/revision/latest/scale-to-width-down/37?cb=20150226164152', 
         description: 'Makes you sleep.', 
-        price: 30.99, 
+        price: 3099, 
         category: 'cure/healthy/medical',
         orderId: 5
     },
@@ -145,7 +145,7 @@ const products = [
         name: 'Swelling Solution', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/9/9b/SwellSol.png/revision/latest/scale-to-width-down/69?cb=20150226165129', 
         description: 'Makes you swell up really fast.', 
-        price: 99.99, 
+        price: 9999, 
         category: 'weird/physical',
         orderId: 14
     },
@@ -153,7 +153,7 @@ const products = [
         name: 'Antidote to Uncommon Poison', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/9/96/Antidote-to-common-poisons.png/revision/latest/scale-to-width-down/66?cb=20150226164351', 
         description: 'Very useful for any type of poison.', 
-        price: 200.99, 
+        price: 20099, 
         category: 'cure/healthy/medical',
         orderId: 13
     },
@@ -161,7 +161,7 @@ const products = [
         name: 'Shrinking Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/9/95/Shrinking-solution-part-2.png/revision/latest/scale-to-width-down/46?cb=20150226164644', 
         description: 'Transforms your body into size of an ant.', 
-        price: 500.89, 
+        price: 50089, 
         category: 'weird/physical',
         orderId: 10
     },
@@ -169,7 +169,7 @@ const products = [
         name: 'Poison Antidote', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/e/ee/DriedBillywigStings.png/revision/latest/scale-to-width-down/81?cb=20110830083743', 
         description: 'Poison antidote.', 
-        price: 20.99, 
+        price: 2099, 
         category: 'cure/healthy/medical',
         orderId: 6
     },
@@ -177,7 +177,7 @@ const products = [
         name: 'Girding Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/e/e0/FlobberwormMucus.png/revision/latest/scale-to-width-down/81?cb=20110830091650', 
         description: 'Girding potion.', 
-        price: 30.99, 
+        price: 3099, 
         category: 'weird',
         orderId: 7
     },
@@ -185,7 +185,7 @@ const products = [
         name: 'Wit-Sharpening Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/2/21/DragonBlood.png/revision/latest/scale-to-width-down/79?cb=20120919184642', 
         description: 'Sharpens your wit by a lot.', 
-        price: 28.99, 
+        price: 2899, 
         category: 'enhancement',
         orderId: 8
     },
@@ -193,7 +193,7 @@ const products = [
         name: 'Invigoration Draught', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/9/98/Invigoration-draught.png/revision/latest/scale-to-width-down/101?cb=20140123170636', 
         description: 'Invigorates you.', 
-        price: 10.99, 
+        price: 1099, 
         category: 'weird',
         orderId: 9
     },
@@ -201,7 +201,7 @@ const products = [
         name: 'Love Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/3/39/Bottle-of-love-potion-lrg.png/revision/latest/scale-to-width-down/101?cb=20151216202016', 
         description: 'Makes anyone fall in love with you.', 
-        price: 5.99, 
+        price: 599, 
         category: 'love',
         orderId: 11
     },
@@ -209,7 +209,7 @@ const products = [
         name: 'Shrinking Solution', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/9/95/Shrinking-solution-part-2.png/revision/latest/scale-to-width-down/46?cb=20150226164644', 
         description: 'Shrinks you into any size you desire', 
-        price: 200.89, 
+        price: 20089, 
         category: 'physical',
         orderId: 4
     },
@@ -217,7 +217,7 @@ const products = [
         name: 'Felix Felicis', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/d/d5/Felix_Felicis.png/revision/latest/scale-to-width-down/56?cb=20130828200950', 
         description: 'Just try this.', 
-        price: 15.99, 
+        price: 1599, 
         category: 'weird',
         orderId: 10
     },
@@ -225,7 +225,7 @@ const products = [
         name: 'Amortentia', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/a/ac/Love.png/revision/latest/scale-to-width-down/101?cb=20121229001803', 
         description: 'Guaranteed satisfaction.', 
-        price: 30.00, 
+        price: 3000, 
         category: 'love/physical',
         orderId: 6
     },
@@ -233,7 +233,7 @@ const products = [
         name: 'Hiccoughing Solution', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/9/92/HiccoughingSolution.png/revision/latest/scale-to-width-down/58?cb=20131128000240', 
         description: 'Hiccups for days.', 
-        price: 7.99, 
+        price: 799, 
         category: 'physical',
         orderId: 14
     },
@@ -241,7 +241,7 @@ const products = [
         name: 'Draught of Living Death', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/d/d7/Draught-of-living-death.png/revision/latest?cb=20121027143847', 
         description: 'You will either live or die. Take your chances.', 
-        price: 68.99, 
+        price: 6899, 
         category: 'death',
         orderId: 12
     },
@@ -249,7 +249,7 @@ const products = [
         name: 'Polyjuice Solution', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/2/26/Polyjuice-potion.png/revision/latest/scale-to-width-down/101?cb=20140528022327', 
         description: 'Delicious juice.', 
-        price: 38.99, 
+        price: 3899, 
         category: 'weird',
         orderId: 8
     },
