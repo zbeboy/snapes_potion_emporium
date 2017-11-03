@@ -4,7 +4,7 @@ module.exports = router
 
 router.get('/:id', (req, res, next) => {
   const orderId = Number(req.params.id);
-
+  
   Order.findOne({
     include: [ Product, Order_Product ],
     where: {
@@ -16,6 +16,7 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post('/cart', (req, res, next) => {
+
   const userId = req.body.userId;
   const products = req.body.products;
 

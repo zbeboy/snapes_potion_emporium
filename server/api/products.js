@@ -1,18 +1,21 @@
 const router = require('express').Router()
-const { Product } = require('../db/models')
+const { Product, Review } = require('../db/models')
 module.exports = router
 
 router.get('/', (req, res, next) => {
-  Product.findAll({ 
-    include: [ Product ]
-  })
+  Product.findAll()
     .then(products => res.json(products))
     .catch(next)
 })
 
 router.get('/:id', (req, res, next) => {
   const productId = Number(req.params.id);
-  Product.findById(productId)
+  Product.findOne({
+    include: [ Review ],
+    where: {
+      id: productId
+    }
+  })
     .then(product => res.json(product))
     .catch(next)
 })
@@ -27,8 +30,9 @@ router.put('/:id', (req, res, next) => {
   let productId = Number(req.params.id);
   Product.findById(productId)
     .then(product => {
-      product.update(req.body)
+      return product.update(req.body)
     })
+    .then(updatedProduct => res.json(updatedProduct))
     .catch(next)
 })
 
