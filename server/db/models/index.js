@@ -16,7 +16,7 @@ const User = require('./user');
 
 //Order
 Order.belongsTo(User);
-Order.belongsToMany(Product, { through: 'order_product' });
+Order.belongsToMany(Product, { through: 'order_product'});
 
 //Product
 Product.hasMany(Review);

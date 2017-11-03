@@ -4,6 +4,7 @@ module.exports = router
 
 router.get('/:id', (req, res, next) => {
   const orderId = Number(req.params.id);
+  
   Order.findOne({
     include: [ Product, Order_Product ],
     where: {
@@ -15,66 +16,63 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post('/cart', (req, res, next) => {
-  //post cart items on state to database if user is logged in or admin on session expire 
-  //cart items on state is an array 
-  const userStatus = req.body.user.status;
+
+  const userId = req.body.userId;
   const products = req.body.products;
 
-  if (userStatus === 'authorizedUser' || userStatus === 'admin'){
-    Order.create()
-      .then(order => products.forEach(product => {
-        Product.update(
-          { orderId: order.id }, 
-            { where: 
-              { id: product.id }
-            }
-          )
-        })
-      )
-    }
+  Order.create({ userId })
+  .then(order => { 
+    products.forEach(product => {
+      return order.addProduct(product, { productId: product })
+    })
+    res.json(order)
+  })
+  .catch(next)
 })
 
 router.post('/created', (req, res, next) => {
-  //post products to order_products with a fixed price 
+  //maybe /:orderId/created and use req.params for the orderId
   const orderId = req.body.orderId;
-  const products = req.body.products;
-  const userStatus = req.body.userStatus;
 
-  if (userStatus === 'authorizedUser' || userStatus === 'admin'){
-    Order.findById(orderId)
-      .then(order => {
-        return order.update({ status: 'Created' })
-      })
-      .then(order => { products.forEach(product => {
-          OrderProduct.created({ fixedPrice: product.price })
+  Order.findById(orderId)
+    .then(order => {
+      // let prices = order.getProducts().map(product => {id: product.id, product.price});
+      order.getProducts()
+      .then(products => products.forEach(product => {
+        return Order_Product.findOne({
+          where: {
+            orderId: orderId,
+            productId: product.id
+          }
         })
-      })
-      .catch(next)
-  } else if (userStatus === 'friend'){
-      Order.create({ status: 'Created' })
-        .then(order => { products.forEach(product => {
-            OrderProduct.created({ fixedPrice: product.price })
-          })
-        })
-        .catch(next)
-    }
+        .then(order => order.update({
+          fixedPrice: product.price
+        }))
+      }))
+
+      return order.update({ status: 'Created' });
+    })
+    .then(order => res.json(order))
+    .catch(next);
 })
 
 router.put('/:id', (req, res, next) => {
   let orderId = Number(req.params.id);
   Order.findById(orderId)
     .then(order => {
-      order.update(req.body)
+      return order.update(req.body)
     })
+    .then(order => res.json(order))
     .catch(next)
 })
 
 router.delete('/:id', (req, res, next) => {
   let orderId = Number(req.params.id);
   Order.findById(orderId)
-    .then(product => {
-      order.destroy()
+    .then(order => {
+      return order.destroy()
     })
+    .then(order => res.json(`Order ${orderId} has been deleted.`))
     .catch(next)
 })
 

@@ -32,5 +32,4 @@ Product.prototype.return = function(num) {
   this.setDataValue('inventory', this.inventory + num);
 }
 
-
 module.exports = Product;

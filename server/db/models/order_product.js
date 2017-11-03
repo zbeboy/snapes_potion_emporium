@@ -3,7 +3,8 @@ const db = require('../db')
 
 const Order_Product = db.define('order_product', {
   fixedPrice: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   }
 })
 
