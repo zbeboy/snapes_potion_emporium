@@ -1,4 +1,4 @@
-const db = require('./server/db/db');
+const db = require('./server/db');
 const User = require('./server/db/models/user');
 const Product = require('./server/db/models/product');
 const Order = require('./server/db/models/order');
