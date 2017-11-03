@@ -17,18 +17,20 @@ router.get('/:id', (req, res, next) => {
 router.post('/cart', (req, res, next) => {
   //post cart items on state to database if user is logged in or admin on session expire 
   //cart items on state is an array 
-  const userStatus = req.body.user.status;
+  // const userStatus = req.body.user.status;
+  // if (userStatus === 'authorizedUser' || userStatus === 'admin') {
+  // }
   const products = req.body.products;
   const fixedPrice = req.body.fixedPrice;
-
-  if (userStatus === 'authorizedUser' || userStatus === 'admin') {
-    Order.create()
-      .then(order => products.forEach(product => {
-        return Order_Product.create({ fixedPrice: fixedPrice, orderId: orderId, productId: product })
-       }))
-      .then(order => res.json(order))
-      .catch(next)
-  }
+  const orderId = req.body.orderId;
+  const userId = req.body.userId;
+  //order,addProduct(product, fixedPrice: )
+  Order.create({ userId: userId })
+  .then(order => products.forEach(product => {
+    return order.addProduct(product, { productId: product })
+   }))
+  .then(order => res.json(order))
+  .catch(next)
 })
 
 router.post('/created', (req, res, next) => {

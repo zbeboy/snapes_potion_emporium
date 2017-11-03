@@ -91,19 +91,7 @@ const startListening = () => {
   require('./socket')(io)
 }
 
-const syncDb = () => { 
-  db.sync({ force: true })
-  .then(() => {
-    return console.log('Seeding databse...');
-  })
-  .catch(err => {
-    console.log('Error while seeding');
-    console.log(err.stack);
-  })
-  .then(() => {
-    db.close();
-    return null;
-  });
+const syncDb = () => { db.sync({ force: true })
 }
 
 // This evaluates as true when this file is run directly from the command line,
