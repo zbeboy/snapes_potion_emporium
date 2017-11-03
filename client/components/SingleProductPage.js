@@ -11,7 +11,7 @@ export class SingleProductPage extends Component {
     const { addToCart, currentProduct } = props
     return (
       <div>
-          <Link>Back</Link> 
+          <Link to='/products'>Back</Link> 
           <h3>{currentProduct.name}</h3>
           <img src={currentProduct.imageURL} />
           <h6>${currentProduct.price}</h6>
