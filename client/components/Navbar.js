@@ -18,7 +18,7 @@ const Navbar = (props) => {
               <Link to={`/user/:id/orders`}>My Orders</Link>
               <a href="#" onClick={handleClick}>Logout</a>
             </div>
-            : <div>
+            : <div><>
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link>
             </div>

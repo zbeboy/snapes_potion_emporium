@@ -9,9 +9,7 @@ const Review = db.define('review', {
     review: {
         type: Sequelize.TEXT,
         validate: { len: [10, 1000] }
-    },
-    userId: Sequelize.INTEGER,
-    productId: Sequelize.INTEGER
+    }
 });
 
 module.exports = Review;
