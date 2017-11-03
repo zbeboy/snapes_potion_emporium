@@ -33,8 +33,10 @@ class Routes extends Component {
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}
-            <Route path="/reviews/:userId" />
-            <Route path="/edit_review" />
+            <Route exact path="/reviews/:userId" />
+            <Route exact path="/edit_review/:reviewId" />
+            <Route exact path="/confirm_order/:orderId" />
+            <Route exact path="/invoice/:orderId" />
             <Route component={Login} />
           </Switch>
         </Main>

@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-const EditReviews = (props) => {
+class EditReview extends Component {
 
-  const {handleEdit, reviews} = props
+  constructor(props){
+    super(props);
+    this.state = {
+        rating: 1,
+        review: ''
+    }
+  }
 
-  return (
-    <div>
-    </div>
-  )
+  render(){
+      const reviewId = this.props.match.params.reviewId;
+      return (
+        <div>
+          <form onSubmit={this.props.editReviewSubmit(this.state)}>
+            <select onChange={(e) => this.setState({rating: e.target.value})}>
+              {
+                [1,2,3,4,5].map((n, idx) => (
+                  <option key={idx} value={n}>n</option>
+                ))
+              }
+            </select>
+            <label> Review:
+                <textarea
+                  value={this.state.review}
+                  onChange={(e) => this.setState({review: e.target.value})}
+                /> 
+            </label>
+          </form>
+        </div>
+      )
+  }
 }
 
 const mapState = (state) => {
@@ -19,8 +43,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    handleEdit (id) {
-        dispatch(editReview(id))
+    editReviewSubmit (newReview) {
+        dispatch(editReviewSubmit(newReview))
     }
   }
 }

@@ -1,4 +1,4 @@
-const db = require('./server/db/db');
+const db = require('./server/db');
 const User = require('./server/db/models/user');
 const Product = require('./server/db/models/product');
 const Order = require('./server/db/models/order');
@@ -108,7 +108,7 @@ const products = [
         price: 3.12, 
         category: 'cure/healthy',
         orderId: 1
-        },
+    },
     {
         name: 'Forgetfulness Potion', 
         imageURL: 'https://vignette.wikia.nocookie.net/harrypotter/images/a/aa/Forgetfulness-potion.png/revision/latest/scale-to-width-down/43?cb=20150226164846', 

@@ -16,11 +16,11 @@ const User = require('./user');
 
 //Order
 Order.belongsTo(User);
-Order.hasMany(Product);
+Order.belongsToMany(Product, { through: 'order_product' });
 
 //Product
 Product.hasMany(Review);
-Product.belongsToMany(Order, { through: 'order_products' });
+Product.belongsToMany(Order, { through: 'order_product' });
 
 //Review
 Review.belongsTo(User);

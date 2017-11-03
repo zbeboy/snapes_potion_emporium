@@ -13,7 +13,7 @@ const AllReviews = (props) => {
                 <div key={review.id}>
                     <span>{reiew.rating}</span>
                     <span>{review.review}</span>
-                    <Link to='/edit_review'>Edit</Link>
+                    <Link to={`/edit_review/${review.id}`}>Edit</Link>
                     <button onClick={handleDelete(review.id)}>Delete</button>
                 </div>
             ))
