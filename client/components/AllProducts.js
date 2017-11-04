@@ -19,10 +19,10 @@ export default class AllProducts extends React.Component {
   }
 
   calculateRating(reviewsArray){
-    let arrayOfRatings = reviewsArray.map((review)=>{
+    let arrayOfRatings = reviewsArray.map((review) => {
       return review.rating
     }); 
-    let ratingsTotal = arrayOfRatings.reduce((accumulator, currentValue)=>{
+    let ratingsTotal = arrayOfRatings.reduce((accumulator, currentValue) => {
       return accumulator + currentValue
     }); 
     let ratingsAverage = ratingsTotal / arrayOfRatings.length; 
@@ -34,7 +34,8 @@ export default class AllProducts extends React.Component {
       return product.category
     })
     
-    let uniqueCategories = [...new Set(productCategories)]; 
+    let uniqueCategories = [...new Set(productCategories)];
+    return uniqueCategories;
     console.log(uniqueCategories)
   }
   
@@ -69,14 +70,23 @@ export default class AllProducts extends React.Component {
 
               <div>Price: ${ `${ product.price }.00` }</div>
               </div>
-              )
+            )
           })}
         </div>
 
         <div className="category">
           <h2>Categories</h2>
           <div>
-            {this.getCategories(products)}
+            { this.getCategories(products).map(category => {
+                return ( 
+                  <div key={category}>
+                    <Link to={`categories/${ category.id }` }>
+                      <div >{ category }</div>
+                    </Link>
+                  </div>
+                )
+              }) 
+            }
           </div>
         </div>
 
