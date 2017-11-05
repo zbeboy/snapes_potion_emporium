@@ -1,24 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { withRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
-export default class AllProducts extends React.Component {
-  constructor(){
-    super()
-    this.state = {
-      products: []
-    }
-  }
-  componentDidMount() {
-    axios.get('/api/products')
-      .then(res => res.data)
-      .then(products => { 
-        console.log(products)
-        this.setState({ products })})
-      .catch(console.error())
-  }
+const AllProducts = (props) => {
+  const products = props.products;
 
-  calculateRating(reviewsArray){
+  const calculateRating = (reviewsArray) => {
     let arrayOfRatings = reviewsArray.map((review) => {
       return review.rating
     }); 
@@ -29,7 +16,7 @@ export default class AllProducts extends React.Component {
     return ratingsAverage; 
   }
 
-  getCategories(products){
+  const getCategories = (products) => {
     let productCategories = products.map(product=>{
       return product.category
     })
@@ -38,75 +25,61 @@ export default class AllProducts extends React.Component {
     return uniqueCategories;
     console.log(uniqueCategories)
   }
-  
-  render(){
-    const products = this.state.products;
-    console.log(this.state); 
-    return (
-      <div>
 
-        <div className="single-product">
-          { products.map(product => {
-            return (
-              <div key ={ product.id }>
-                <div>
-                  <Link to={`/products/${ product.id }`}>
-                    <div><img src={`${ product.imageURL }`} alt="Potion's Product"/></div>
-                  </Link>
-                </div>
-
-                <div>
-                  <Link to={`/products/${ product.id }`}>
-                    <div>{ product.name }</div>
-                  </Link>
-                </div>
-
-                <span>
-                  <Link to={`/reviews/${ product.id }`}>
-                    <span>Rating: { this.calculateRating(product.reviews) } </span>
-                    <span>| Reviews: { product.reviews.length }</span>
-                  </Link>
-                </span>
-
-              <div>Price: ${ `${ product.price }.00` }</div>
+  return (
+    <div>
+      <div className="single-product">
+        { products.map(product => {
+          return (
+            <div key ={ product.id }>
+              <div>
+                <Link to={`/products/${ product.id }`}>
+                  <div><img src={`${ product.imageURL }`} alt="Potion's Product"/></div>
+                </Link>
               </div>
-            )
-          })}
-        </div>
 
-        <div className="category">
-          <h2>Categories</h2>
-          <div>
-            { this.getCategories(products).map(category => {
-                return ( 
-                  <div key={category}>
-                    <Link to={`categories/${ category.id }` }>
-                      <div >{ category }</div>
-                    </Link>
-                  </div>
-                )
-              }) 
-            }
-          </div>
-        </div>
+              <div>
+                <Link to={`/products/${ product.id }`}>
+                  <div>{ product.name }</div>
+                </Link>
+              </div>
 
+              <span>
+                <Link to={`/reviews/${ product.id }`}>
+                  <span>Rating: { this.calculateRating(product.reviews) } </span>
+                  <span>| Reviews: { product.reviews.length }</span>
+                </Link>
+              </span>
+
+            <div>Price: ${ `${ product.price }.00` }</div>
+            </div>
+          )
+        })}
       </div>
-    )
-  }
+
+      <div className="category">
+        <h2>Categories</h2>
+        <div>
+          { this.getCategories(products).map(category => {
+              return ( 
+                <div key={category}>
+                  <Link to={`categories/${ category.id }` }>
+                    <div >{ category }</div>
+                  </Link>
+                </div>
+              )
+            }) 
+          }
+        </div>
+      </div>
+    </div>
+  )
 }
   
-  // const mapState = (state) => {
-  //   return {
-  //     reviews: state.reviews
-  //   }
-  // }
-  
-  // const mapDispatch = (dispatch) => {
-  //   return {
-  //     handleDelete (id) {
-  //         dispatch(deleteReview(id))
-  //     }
-  //   }
-  // }
-  
-  // export const AllReviewsContainer = connect(mapState, mapDispatch)(AllReviews);
+const mapState = (state) => {
+  return {
+    products: state.products
+  }
+}
+
+export default withRouter(connect(mapState, mapDispatch)(AllProducts));
